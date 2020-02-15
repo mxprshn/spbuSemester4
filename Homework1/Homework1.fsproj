@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="FindNumber.fs" />
+    <Compile Include="PowerList.fs" />
+    <Compile Include="Reverse.fs" />
+    <Compile Include="Fibonacci.fs" />
+    <Compile Include="Factorial.fs" />
+  </ItemGroup>
+
+</Project>
