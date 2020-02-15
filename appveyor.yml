@@ -9,6 +9,3 @@ before_build:
 
 build_script:
   - msbuild %solution_path%
-
-test_script:
-  - dotnet test --test-adapter-path:. --logger:Appveyor Homework1.Tests\Homework1.Tests.fsproj
