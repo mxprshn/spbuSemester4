@@ -16,7 +16,7 @@ let testCases =
 [<TestCaseSource("testCases")>]
 [<Test>]
 let powerListTest n m expected =
-    Assert.AreEqual(Some(expected), powerList n m 0 [])
+    Assert.AreEqual(Some(expected), powerList n m)
 
 let powerListInvalidTest () =
-    Assert.AreEqual(None, powerList -10 2 0 [])
+    Assert.AreEqual(None, powerList -10 2)
