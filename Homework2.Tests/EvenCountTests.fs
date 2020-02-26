@@ -31,5 +31,5 @@ let ``Count even elements of list with evenCountMap`` list expected =
     evenCountMap list |> should equal expected
 
 [<Test>]
-let ``Functions return equal results`` = 
+let ``Functions return equal results`` () = 
     Check.QuickThrowOnFailure (fun x -> evenCountFold x = evenCountFilter x && evenCountFold x = evenCountMap x)

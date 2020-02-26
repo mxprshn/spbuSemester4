@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="TreeMapTests.fs" />
     <Compile Include="EvenCountTests.fs" />
 
   </ItemGroup>
