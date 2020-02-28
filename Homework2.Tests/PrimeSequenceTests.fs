@@ -2,17 +2,19 @@
 
 open NUnit.Framework
 open FsCheck
+open FsUnit
 open PrimeSequence
 
 let leavePrimes n =
-    let rec leavePrimesRecursive list = function
-        | i when i >= List.length list -> list
-        | i -> leavePrimesRecursive (List.filter (fun x -> x % (List.item i list) <> 0) list) (i + 1)
-    leavePrimesRecursive [1..n] 0
+    let rec leavePrimesRecursive list =
+        match list with
+        | h::t -> h :: (leavePrimesRecursive <| List.filter (fun x -> x % h <> 0) t)
+        | [] -> []
+    leavePrimesRecursive [2..n]
 
-printf "%A" (leavePrimes 100)
-
-//[<Test>]
-//let ``Sequence contains prime numbers`` () = 
-//    Check.QuickThrowOnFailure (x -> )
-
+[<Test>]
+let ``Sequence contains prime numbers`` () =
+    Check.QuickThrowOnFailure (fun x ->
+        let expected = leavePrimes x
+        let actual = Seq.take expected.Length primes |> Seq.toList
+        actual |> should equal expected)
