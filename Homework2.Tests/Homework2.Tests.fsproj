@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="PrimeSequenceTests.fs" />
     <Compile Include="TreeMapTests.fs" />
     <Compile Include="EvenCountTests.fs" />
 
