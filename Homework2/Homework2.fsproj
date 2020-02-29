@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="ExpressionEvaluation.fs" />
+    <Compile Include="PrimeSequence.fs" />
+    <Compile Include="TreeMap.fs" />
+    <Compile Include="EvenCount.fs" />
+  </ItemGroup>
+
+</Project>
