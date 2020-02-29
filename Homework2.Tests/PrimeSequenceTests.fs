@@ -2,7 +2,6 @@
 
 open NUnit.Framework
 open FsCheck
-open FsUnit
 open PrimeSequence
 
 let leavePrimes n =
@@ -17,4 +16,4 @@ let ``Sequence contains prime numbers`` () =
     Check.QuickThrowOnFailure (fun x ->
         let expected = leavePrimes x
         let actual = Seq.take expected.Length primes |> Seq.toList
-        actual |> should equal expected)
+        actual = expected)

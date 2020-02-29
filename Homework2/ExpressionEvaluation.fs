@@ -1,17 +1,17 @@
 ﻿module ExpressionEvaluation
 
+/// Arithmetical expression tree representation with discriminated union.
 type Expression =
     | Sum of Expression * Expression
-    | Multiple of Expression * Expression
-    | Difference of Expression * Expression
-    | Quotient of Expression * Expression
-    | Operand of int
+    | Mult of Expression * Expression
+    | Diff of Expression * Expression
+    | Quot of Expression * Expression
+    | Opnd of int
 
+/// Evaluates an arithmetical expression tree.
 let rec evaluate = function
     | Sum(a, b) -> evaluate a + evaluate b
-    | Multiple(a, b) -> evaluate a * evaluate b
-    | Difference(a, b) -> evaluate a - evaluate b
-    | Quotient(a, b) -> evaluate a / evaluate b
-    | Operand(x) -> x
-
-printf "%d" (Sum(Operand(1), Operand(2)))
+    | Mult(a, b) -> evaluate a * evaluate b
+    | Diff(a, b) -> evaluate a - evaluate b
+    | Quot(a, b) -> evaluate a / evaluate b
+    | Opnd(x) -> x

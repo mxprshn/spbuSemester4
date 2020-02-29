@@ -1,5 +1,6 @@
 ﻿module PrimeSequence
 
+/// Returns the infinite sequence of prime numbers.
 let primes =
     let isPrime n =
         let rec isPrimeRecursive n = function
@@ -8,7 +9,3 @@ let primes =
             | i -> isPrimeRecursive n (i + 1)
         isPrimeRecursive n 2
     Seq.initInfinite (fun x -> x + 2) |> Seq.filter isPrime
-
-printf "%A" (Seq.take 10000 primes |> Seq.toList)
-    
-
