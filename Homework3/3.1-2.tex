@@ -1,0 +1,26 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setmainfont[Mapping=tex-text]{CMU Serif}
+\pagestyle{empty}
+
+\begin{document}
+
+\section*{3.1}
+
+$$((\lambda a.(\lambda b.b\ b)\ (\lambda b.b\ b))\ b)\ ((\lambda c.(c\ b))\ (\lambda a.a)) \rightarrow_\beta
+((\lambda b.b\ b)\ (\lambda b.b\ b))\ ((\lambda c.(c\ b))\ (\lambda a.a)) \rightarrow_\beta$$
+$$((\lambda b.b\ b)\ (\lambda b.b\ b))\ ((\lambda a.a)\ b) \rightarrow_\beta
+((\lambda b.b\ b)\ (\lambda b.b\ b))\ b$$
+
+\section*{3.2}
+
+$$S\ K\ K \equiv (\lambda x\ y\ z.x\ z\ (y\ z))\ (\lambda x\ y.x)\ (\lambda x\ y.x) \rightarrow_\beta
+(\lambda y\ z.(\lambda x\ y.x)\ z\ (y\ z))\ (\lambda x\ y.x) \rightarrow_\beta$$
+$$\lambda z.(\lambda x\ y.x)\ z\ ((\lambda x\ y.x)\ z) \rightarrow_\beta 
+\lambda z.(\lambda x\ y.x)\ z\ (\lambda y.z) \rightarrow_\beta
+\lambda z.(\lambda y.z)\ (\lambda y.z) \rightarrow_\beta
+\lambda z.z \equiv I$$
+
+\end{document}
