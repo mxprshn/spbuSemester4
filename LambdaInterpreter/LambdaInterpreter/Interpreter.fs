@@ -29,6 +29,9 @@ let rec subs b a = function
 
 let rec reduce = function
     | Var(v) as x -> x
-    | App(Abs(v, e), r) -> reduce(subs v r e) 
+    | App(Abs(v, e), r) -> reduce (subs v r e) 
     | Abs(v, e) -> Abs(v, reduce e)
-    | App(l, r) -> App(reduce l, reduce r)
+    | App(Var(a), Var(b)) as x -> x 
+    | App(l, r) -> reduce (App(reduce l, reduce r))
+
+reduce (App(App(Var('x'), Var('y')), App(Var 'a', Var 'b')))

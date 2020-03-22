@@ -12,6 +12,8 @@ let testCases =
         App(Var('x'), Var('y')), App(Var('x'), Var('y'))
         Abs('x', App(Abs('y', Var('y')), Var('x'))), Abs('x', Var('x'))
         App(Abs('x', Abs('y', Var('x'))), Var('y')), Abs('a', Var('y'))
+        App(App(Abs('x', Var('a')), Var('x')), App(Abs('y', Var('b')), Var('y'))), App(Var('a'), Var('b'))
+        App(App(Abs('x', Abs('y', Abs('z', App(App(Var('x'), Var('z')), App(Var('y'), Var('z')))))), Abs('x', Abs('y', Var('x')))), Abs('x', Abs('y', Var('x')))), Abs('z', Var('z'))
 
     ] |> List.map (fun (l, e) -> TestCaseData(l, e))
 
