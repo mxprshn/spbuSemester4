@@ -19,16 +19,16 @@ let rec isBound e v =
 
 let rec subs b a = function
     | Abs(v, e) when not (isFree a v) -> Abs(v, subs b a e)
-    | Var(v) when v = b -> Var(a)
+    | Var(v) when v = b -> a
     | Var(v) as x -> x
     | App(l, r) -> App(subs b a l, subs b a r)
     | Abs(v, e) as x when v = b -> x
     | Abs(v, e) ->
-        let newSym = ['a'..'z'] |> List.filter (not (isFree a)) |> List.head
-        Abs(newSym, subs(b, a, subs(b, Var(newSym), e))
+        let newSym = ['a'..'z'] |> List.filter (not << (isFree a)) |> List.head
+        Abs(newSym, (subs b a (subs v (Var(newSym)) e)))
 
-let rec reduce expression =
-    match expression with
+let rec reduce = function
     | Var(v) as x -> x
     | App(Abs(v, e), r) -> reduce(subs v r e) 
     | Abs(v, e) -> Abs(v, reduce e)
+    | App(l, r) -> App(reduce l, reduce r)
