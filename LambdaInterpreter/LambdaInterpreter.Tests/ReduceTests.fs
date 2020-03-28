@@ -37,6 +37,3 @@ let testCases =
 [<TestCaseSource("testCases")>]
 let reduceTest l e =
     l |> reduce |> should equal e
-
-
-    
