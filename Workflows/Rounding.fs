@@ -1,5 +1,6 @@
 ﻿module Rounding
 
+/// Workflow builder for float operations with given precision. 
 type RoundingBuilder(prec: int) =
     do
         if prec < 0 || prec > 15 then
@@ -8,6 +9,3 @@ type RoundingBuilder(prec: int) =
         (x, prec) |> System.Math.Round |> f
     member this.Return (x: float) =
         System.Math.Round (x, prec)
-
-
-
