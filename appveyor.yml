@@ -2,7 +2,7 @@ image: Visual Studio 2019
 
 environment:
   matrix:
-  - solution_path: Homework1\Homework1.sln
+  - solution_path: PointFree\PointFree.sln
 
 before_build:
  - nuget restore %solution_path%
@@ -11,4 +11,4 @@ build_script:
   - msbuild %solution_path%
 
 test_script:
-  - dotnet test --test-adapter-path:. --logger:Appveyor Homework1.Tests\Homework1.Tests.fsproj
+  - dotnet test --test-adapter-path:. --logger:Appveyor PointFree\PointFree.Tests\PointFree.Tests.fsproj
